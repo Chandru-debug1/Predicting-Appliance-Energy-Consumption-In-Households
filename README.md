@@ -149,6 +149,91 @@ The best model is selected using the lowest RMSE on the test split. RMSE is a st
 - Model persistence versioning.
 - Deployment to Streamlit Community Cloud.
 
+## Project Goal
+
+The main goal is to build a model that predicts appliance consumption accurately, then compare multiple algorithms and choose the best one. The result is presented in a Streamlit dashboard so the project looks production-ready on GitHub.
+
+## ML Workflow
+
+Your pipeline follows this sequence:
+
+1. Load the CSV file.
+2. Clean and preprocess the data.
+3. Extract time features from `date`.
+4. Drop `rv1` and `rv2`.
+5. Split into train and test sets.
+6. Train 4 regression models.
+7. Evaluate them with regression metrics.
+8. Select the best model.
+9. Save the model.
+10. Show performance in Streamlit.
+
+## Models You Used
+
+Your project compares these 4 models:
+
+- Linear Regression.
+- Ridge Regression.
+- Random Forest Regressor.
+- Gradient Boosting Regressor.
+
+These give you a baseline linear model, a regularized linear model, and two nonlinear tree-based models.
+
+## Evaluation Metrics
+
+You evaluate the models using:
+
+- MAE: average absolute error.
+- RMSE: square-rooted average squared error.
+- R²: how much variance the model explains.
+
+These are standard metrics for regression problems.
+
+## Feature Engineering
+
+The most useful new features are time-based:
+
+- `hour`
+- `day_of_week`
+- `month`
+- `is_weekend`
+
+These help the model capture daily and weekly appliance usage patterns.
+
+## Missing Values Handling
+
+Your code handles NaN values using `SimpleImputer` inside the sklearn pipeline. This is necessary because Linear Regression and some other models cannot train directly on missing values.
+
+## Streamlit Dashboard
+
+Your Streamlit app acts as the presentation layer for the project. It shows:
+
+- model comparison table,
+- RMSE bar chart,
+- actual vs predicted chart,
+- residual plot,
+- trend plots,
+- prediction form,
+- download buttons for outputs.
+
+## What the Dashboard Output Means
+
+The dashboard output shows the user:
+
+- which model performed best,
+- how accurate each model was,
+- what the predicted appliance value is for a given input,
+- how predictions compare with actual values.
+
+## Project Outputs
+
+After training, the project creates:
+
+- `best_model.joblib`,
+- `model_results.csv`,
+- dashboard plots,
+- prediction values from the UI.
+
 ## License
 
 This project is released for learning and portfolio use. Add an MIT license if you want it open-source.
