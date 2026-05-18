@@ -1,6 +1,4 @@
-##pip install -r requirements.txt
-python -m src.train
-streamlit run app.py
+
 # Appliance Energy Prediction
 
 A machine learning project to predict appliance energy consumption using sensor and weather data, with a Streamlit dashboard.
