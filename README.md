@@ -49,6 +49,110 @@ appliance-energy-prediction/
 ## Dataset
 
 The dataset contains timestamped household energy data with the target column `Appliances`, along with indoor temperature, humidity, outdoor weather features, and two random variables `rv1` and `rv2`. The random variables are excluded from training. [file:11]
+Project goal
+The main goal is to build a model that predicts appliance consumption accurately, then compare multiple algorithms and choose the best one. You also want to present the result in a Streamlit dashboard so the project looks production-ready on GitHub.
+
+ML workflow
+Your pipeline should follow this sequence:
+
+Load the CSV file.
+
+Clean and preprocess the data.
+
+Extract time features from date.
+
+Drop rv1 and rv2.
+
+Split into train and test sets.
+
+Train 4 regression models.
+
+Evaluate them with regression metrics.
+
+Select the best model.
+
+Save the model.
+
+Show performance in Streamlit.
+
+Models you used
+Your project compares these 4 models:
+
+Linear Regression.
+
+Ridge Regression.
+
+Random Forest Regressor.
+
+Gradient Boosting Regressor.
+
+These give you a baseline linear model, a regularized linear model, and two nonlinear tree-based models.
+
+Evaluation metrics
+You should evaluate the models using:
+
+MAE: average absolute error.
+
+RMSE: square-rooted average squared error.
+
+R²: how much variance the model explains.
+
+These are standard metrics for regression problems.
+
+Feature engineering
+The most useful new features are time-based:
+
+hour
+
+day_of_week
+
+month
+
+is_weekend
+
+These help the model capture daily and weekly appliance usage patterns.
+
+Missing values handling
+Your code should handle NaN values using SimpleImputer inside the sklearn pipeline. This is necessary because Linear Regression and some other models cannot train directly on missing values.
+
+Streamlit dashboard
+Your Streamlit app should act as the presentation layer for the project. It should show:
+
+model comparison table,
+
+RMSE bar chart,
+
+actual vs predicted chart,
+
+residual plot,
+
+trend plots,
+
+prediction form,
+
+download buttons for outputs.
+
+What the dashboard output means
+The dashboard output should show the user:
+
+which model performed best,
+
+how accurate each model was,
+
+what the predicted appliance value is for a given input,
+
+how predictions compare with actual values.
+
+Project outputs
+After training, the project should create:
+
+best_model.joblib,
+
+model_results.csv,
+
+dashboard plots,
+
+prediction values from the U
 
 ## Installation
 
