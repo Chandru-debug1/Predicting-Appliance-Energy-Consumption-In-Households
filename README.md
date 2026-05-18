@@ -2,6 +2,9 @@
 
 A machine learning project that predicts household appliance energy consumption using sensor and weather data, with an interactive Streamlit dashboard for model comparison, analysis, and prediction.
 
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
+![Scikit--Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange)
 ## Features
 
 - Predicts appliance energy consumption.
